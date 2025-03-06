@@ -5,40 +5,63 @@ PROBLEM STATEMENT CLARITY:
               
 SHORT DESCRIPTION:
 Detect and flag harmful social media comments using NLP.
- NLP Workflow for Detecting Harmful Social Media Comments
 
 TECHNICAL STACK:
 
+1)Data Collection & Storage:
+  *Python with libraries like Tweepy (Twitter), PRAW (Reddit) for collecting social media data
+  *MongoDB or PostgreSQL for storing collected comments and metadata
+  *Pandas for data manipulation and preprocessing
 
-Core Components
-1. Data Processing Pipeline
+2)Text Processing & Feature Engineering:
+  *NLTK for basic text preprocessing (tokenization, stemming)
+  *spaCy for advanced NLP tasks (entity recognition, dependency parsing)
+  *scikit-learn for feature extraction with TF-IDF and other vectorization techniques
+  *HuggingFace Datasets for working with existing cyberbullying datasets
 
-MongoDB for storing processed comments and metadata
+3)Model Development:
+  *PyTorch or TensorFlow/Keras as the deep learning framework
+  *HuggingFace Transformers for implementing pre-trained language models
+  *BERT/RoBERTa/DistilBERT as the base transformer model
+  *scikit-learn for traditional ML algorithms (comparison baseline)
+  *Optuna or Ray Tune for hyperparameter optimization
 
-2. NLP & ML Core
+4)Cloud Infrastructure:
 
-Python as the primary programming language
-RoBERTa-base fine-tuned model as primary classifier
-PyTorch as the deep learning framework
-
-3. Content Moderation System
-
-FastAPI for building the API layer
-
+  *AWS, GCP, or Azure for cloud hosting
+  *AWS SageMaker or Google Vertex AI for model training and deployment
 
 INNOVATION AND UNIQUENESS:
 
-Innovation & Uniqueness
 
-Context-Aware NLP: Utilizes transformer-based models (e.g., BERT, RoBERTa) to understand the context behind words, reducing false positives.
+SCALABILITY:
 
-Real-Time Analysis: Enables instant detection of harmful content, providing real-time intervention.
+Streaming Architecture:
 
-Sentiment & Emotion Detection: Goes beyond simple toxicity detection by identifying underlying emotions like anger, sadness, or harassment intent.
+Implement Apache Kafka or AWS Kinesis for real-time comment ingestion
+Design for parallel processing of incoming data streams
+Use consumer groups to distribute processing load across multiple instances
 
-Multilingual Support: Detects cyberbullying in multiple languages, making it globally adaptable.
+Batch Processing:
 
-Explainable AI: Provides insights into why a comment is flagged, increasing transparency and trust.
+Leverage Apache Spark for distributed processing of historical data
+Implement incremental processing patterns to avoid full reprocessing
+Schedule regular model retraining on accumulated data
 
-Adaptive Learning: Continuously improves by learning from new patterns of online harassment.
-      
+FEASILIBILITY AND PRACTICALITY:
+
+Natural Language Processing (NLP):
+
+  Feasible: NLP models like BERT, RoBERTa, GPT, and LSTMs are well-suited for text classification tasks.
+  Challenge: Understanding sarcasm, code words, and evolving slang requires continuous fine-tuning.
+  Solution: Use context-aware models and train on real-world social media datasets.
+
+Real-Time Detection:
+
+  Feasible: Deploying models via FastAPI, Flask, or TensorFlow Serving enables real-time detection.
+  Challenge: Latency issues for high-volume platforms like Twitter or Instagram.
+  Solution: Optimize models via distillation (TinyBERT, DistilBERT) and use edge computing for efficiency.
+  
+
+  
+  
